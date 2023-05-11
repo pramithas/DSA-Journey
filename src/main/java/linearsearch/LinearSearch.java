@@ -16,7 +16,7 @@ public class LinearSearch {
     }
 
     public static void main(String[] args) {
-        int arr[] = {1,5,9,8,4};
+        int[] arr = {1,5,9,8,4};
         System.out.println(linearSearch(arr, 9));
     }
 }
