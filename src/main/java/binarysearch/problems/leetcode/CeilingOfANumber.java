@@ -1,4 +1,4 @@
-package binarysearch.problems;
+package binarysearch.problems.leetcode;
 
 public class CeilingOfANumber {
 
