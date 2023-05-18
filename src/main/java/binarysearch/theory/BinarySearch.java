@@ -7,7 +7,7 @@ public class BinarySearch {
         System.out.println(binarySearch(arr, 80));
     }
 
-    static int binarySearch(int[] arr, int target) {
+   public  static int binarySearch(int[] arr, int target) {
 
         int start = 0;
         int end = arr.length - 1;
