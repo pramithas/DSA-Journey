@@ -26,6 +26,7 @@ public class RotatedBinarySearch {
         return ans;
     }
 
+    // Method for binary search.
     static int bs(int[] arr, int start, int end, int target) {
         while (start <= end) {
 
