@@ -9,7 +9,7 @@ public class FindElementInInfiniteArray {
 
     static int findIndex(int[] arr, int target) {
 
-        // This approach check for each range whether or not the target lies in that range. And, if yes,
+        // This approach (commented code) check for each range whether or not the target lies in that range. And, if yes,
         //it conducts binary search in that range. We can be more concise here.
         int start = 0;
         int end = 1;
