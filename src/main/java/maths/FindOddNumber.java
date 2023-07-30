@@ -1,5 +1,8 @@
 package maths;
 
+/**
+ * Bitwise and operator
+ */
 public class FindOddNumber {
 
     static boolean  isOdd(int x){
