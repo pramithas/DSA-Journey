@@ -1,3 +1,3 @@
-# Algorithms-Practice
+# Personal journey of learning data structures and algorithms.
 
-A personal journey of learning algorithms :)
+A personal journey of learning data structures and algorithms :)
