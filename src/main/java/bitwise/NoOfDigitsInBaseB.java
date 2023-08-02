@@ -1,4 +1,4 @@
-package maths;
+package bitwise;
 
 /**
  * Write a program to find the number of digits of a given number in particular base.

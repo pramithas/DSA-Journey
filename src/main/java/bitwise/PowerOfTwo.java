@@ -1,4 +1,4 @@
-package maths;
+package bitwise;
 
 /**
  * Write a program that checks if a number if power of two

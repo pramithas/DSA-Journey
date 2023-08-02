@@ -1,4 +1,4 @@
-package maths;
+package bitwise;
 
 /**
  * Bitwise XOR operation.

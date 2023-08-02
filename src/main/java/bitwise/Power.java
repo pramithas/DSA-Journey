@@ -1,4 +1,4 @@
-package maths;
+package bitwise;
 
 /**
  * Write a program to power a number to a given number

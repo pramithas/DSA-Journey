@@ -1,4 +1,4 @@
-package maths;
+package bitwise;
 
 /**
  * Write a program to find nth magic number.
