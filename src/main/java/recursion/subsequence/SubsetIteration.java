@@ -1,14 +1,10 @@
 package recursion.subsequence;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class SubsetIteration {
 
     public static void main(String[] args) {
-        int str[] = {1, 2, 3};
-        findSubsets(str);
     }
 
     public static void findSubsets(int arr[]) {
@@ -26,5 +22,32 @@ public class SubsetIteration {
         }
 
         System.out.println(Arrays.toString(outer.toArray()));
+    }
+
+    public static List<List<Integer>> findSubsetsHandleDuplicates(int[] nums) {
+
+        Set<String> mySet = new HashSet<>();
+        mySet.add("S");
+
+        Arrays.sort(nums);
+
+        List<List<Integer>> outer = new ArrayList<>();
+        outer.add(new ArrayList<>());
+
+        int previous = -1;
+        for (int elem : nums) {
+            int n = outer.size();
+            for (int i = 0; i < n; i++) {
+                if (elem == previous) {
+                    continue;
+                }
+                List<Integer> inner = new ArrayList<>(outer.get(i));
+                inner.add(elem);
+                outer.add(inner);
+            }
+            previous = elem;
+        }
+
+        return outer;
     }
 }
