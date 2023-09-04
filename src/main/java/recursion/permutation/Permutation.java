@@ -13,12 +13,13 @@ public class Permutation {
 
     private static void calculatePermutations(String processed, String input) {
 
-        if (input == null || input.isEmpty()) {
+        if (input.isEmpty()) {
             System.out.println(processed);
             return;
         }
 
         int length = processed.length();
+
         for (int i = 0; i < length + 1; i++) {
             String finalStr = processed.substring(0, i) + input.charAt(0) + processed.substring(i, length);
             calculatePermutations(finalStr, input.substring(1));
