@@ -1,2 +1,34 @@
-package recursion.backtracking;public class MazeWithObstacles {
+package recursion.backtracking;
+
+public class MazeWithObstacles {
+
+    public static void main(String[] args) {
+        boolean maze[][] = {{true, true, true}, {true, false, false}, {true, true, true}};
+        printPathWithObstacles(0, 0, maze, "");
+    }
+
+    static void printPathWithObstacles(int r, int c, boolean maze[][], String processed) {
+
+        if (r == maze.length - 1 && c == maze[0].length - 1) {
+            System.out.println(processed);
+            return;
+        }
+
+        if (!maze[r][c]) {
+            return;
+        }
+
+        // Not just center diagonal. It means diagonal movement from any cell to other cell.
+        if (r < maze.length - 1 && c < maze[0].length - 1) {
+            printPathWithObstacles(r + 1, c + 1, maze, processed + "D");
+        }
+
+        if (c < maze[0].length - 1) {
+            printPathWithObstacles(r, c + 1, maze, processed + "H");
+        }
+
+        if (r < maze.length - 1) {
+            printPathWithObstacles(r + 1, c, maze, processed + "V");
+        }
+    }
 }
