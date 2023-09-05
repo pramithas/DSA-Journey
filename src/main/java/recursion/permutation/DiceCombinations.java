@@ -16,8 +16,7 @@ public class DiceCombinations {
         int finalCount = 0;
 
         if (target == 0) {
-            count++;
-            return count;
+            return 1;
         }
 
         for (int i = 1; i <= k && i <= target; i++) {
