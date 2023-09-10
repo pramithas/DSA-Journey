@@ -1,10 +1,12 @@
 package LinkedList;
 
+import static LinkedList.LinkedList.merge;
+
 public class Main {
 
     public static void main(String[] args) {
 
-//        LinkedList linkedList = new LinkedList();
+        LinkedList linkedList = new LinkedList();
 //        linkedList.insertFirst(5);
 //        linkedList.insertFirst(9);
 //        linkedList.insertFirst(8);
@@ -13,10 +15,21 @@ public class Main {
 //
 //        linkedList.insert(500, 2);
 //
-//        linkedList.insertLast(100);
-//        linkedList.insertLast(120);
+        linkedList.insertLast(100);
+        linkedList.insertLast(120);
+        linkedList.insertLast(340);
+        linkedList.insertLast(570);
+
+        LinkedList linkedList1 = new LinkedList();
+        linkedList1.insertLast(1);
+        linkedList1.insertLast(500);
+        linkedList1.insertLast(1200);
 //
-//         linkedList.display();
+        linkedList.display();
+        linkedList1.display();
+
+        LinkedList result = merge(linkedList, linkedList1);
+        result.display();
 ////        System.out.println(linkedList.deleteFirst());
 ////        linkedList.display();
 ////        System.out.println(linkedList.deleteLast());
@@ -41,12 +54,12 @@ public class Main {
 //        doublyLinkedList.display();
         //doublyLinkedList.displayReverse();
 
-        CircularLinkedList circularLinkedList = new CircularLinkedList();
-        circularLinkedList.insert(3);
-        circularLinkedList.insert(4);
-        circularLinkedList.insert(5);
-        circularLinkedList.display();
-        circularLinkedList.delete(3);
-        circularLinkedList.display();
+//        CircularLinkedList circularLinkedList = new CircularLinkedList();
+//        circularLinkedList.insert(3);
+//        circularLinkedList.insert(4);
+//        circularLinkedList.insert(5);
+//        circularLinkedList.display();
+//        circularLinkedList.delete(3);
+//        circularLinkedList.display();
     }
 }
