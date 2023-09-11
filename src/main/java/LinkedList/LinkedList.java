@@ -112,24 +112,90 @@ public class LinkedList {
         return count;
     }
 
-    public Node merge(Node n1, Node n2) {
+    public Node sort(Node head) {
+
+        Node temp = head;
+
+        if (temp == null || temp.next == null) {
+            return temp;
+        }
+
+        Node mid = middleNode(temp);
+        Node left = sort(temp);
+        Node right = sort(mid);
+
+        return merge(left, right);
+    }
+
+    public void bubbleSort() {
+        bubbleSort(size - 1, 0);
+    }
+
+    private void bubbleSort(int row, int col) {
+
+        if (row == 0) {
+            return;
+        }
+
+        if (col < row) {
+
+            Node first = get(col);
+            Node second = get(col + 1);
+
+            if (first.value > second.value) {
+
+                if (first == head) {
+                    head = second;
+                    first.next = second.next;
+                    second.next = first;
+                } else if (second == tail) {
+                    Node prev = get(col - 1);
+                    prev.next = second;
+                    second.next = first;
+                    tail = first;
+                    tail.next = null;
+                } else {
+                    Node prev = get(col - 1);
+                    prev.next = second;
+                    first.next = second.next;
+                    second.next = first;
+                }
+            }
+            bubbleSort(row, col + 1);
+        } else {
+            bubbleSort(row - 1, 0);
+        }
+
+    }
+
+    public Node middleNode(Node head) {
+
+        Node midPrev = null;
+        while (head != null && head.next != null) {
+            midPrev = (midPrev == null) ? head : midPrev.next;
+            head = head.next.next;
+        }
+        Node mid = midPrev.next;
+        midPrev.next = null;
+        return mid;
+    }
+
+    public Node merge(Node list1, Node list2) {
 
         // THis dummy head is used as an extra variable to ensure that the initial empty node is not returned.
         Node dummyHead = new Node();
-        Node tail = new Node();
-
-        while (n1 != null && n2 != null) {
-            if (n1.value < n2.value) {
-                tail.next = n1;
-                n1 = n1.next;
+        Node tail = dummyHead;
+        while (list1 != null && list2 != null) {
+            if (list1.value < list2.value) {
+                tail.next = list1;
+                list1 = list1.next;
             } else {
-                tail.next = n2;
-                n2 = n2.next;
+                tail.next = list2;
+                list2 = list2.next;
             }
             tail = tail.next;
         }
-
-        tail.next = (n1 == null ? n2 : n1);
+        tail.next = (list1 != null) ? list1 : list2;
         return dummyHead.next;
     }
 
@@ -174,7 +240,7 @@ public class LinkedList {
             deleteLast();
         }
 
-        Node beforeNode = getPreviousNode(index - 1);
+        Node beforeNode = get(index - 1);
 
         int value = beforeNode.next.value;
 
@@ -197,7 +263,7 @@ public class LinkedList {
         return null;
     }
 
-    private Node getPreviousNode(int index) {
+    private Node get(int index) {
 
         Node temp = head;
 
@@ -219,7 +285,7 @@ public class LinkedList {
 //            temp = temp.next;
 //        }
 
-        Node secondLast = getPreviousNode(size - 2);
+        Node secondLast = get(size - 2);
         // we can also get the pointer to second last node with for loop from i=0 to size - 2.
 
         int val = tail.value;
