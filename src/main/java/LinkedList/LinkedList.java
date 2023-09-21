@@ -30,7 +30,7 @@ public class LinkedList {
 
         while (temp.next != null) {
             // How to modify a linked list? manipulate the next pointer.
-            if (temp.value == temp.next.value) {
+            if (temp.val == temp.next.val) {
                 temp.next = temp.next.next;
                 size--;
             } else {
@@ -49,22 +49,22 @@ public class LinkedList {
         LinkedList result = new LinkedList();
 
         while (h1 != null && h2 != null) {
-            if (h1.value < h2.value) {
-                result.insertLast(h1.value);
+            if (h1.val < h2.val) {
+                result.insertLast(h1.val);
                 h1 = h1.next;
             } else {
-                result.insertLast(h2.value);
+                result.insertLast(h2.val);
                 h2 = h2.next;
             }
         }
 
         while (h1 != null) {
-            result.insertLast(h1.value);
+            result.insertLast(h1.val);
             h1 = h1.next;
         }
 
         while (h2 != null) {
-            result.insertLast(h2.value);
+            result.insertLast(h2.val);
             h2 = h2.next;
         }
 
@@ -115,10 +115,10 @@ public class LinkedList {
     /**
      * Reverse a linked list.
      */
-    public void reverse() {
+    public ListNode reverse(ListNode head) {
 
-        if (size <= 1) {
-            return;
+        if (head == null) {
+            return head;
         }
 
         ListNode prev = null;
@@ -136,7 +136,7 @@ public class LinkedList {
         }
 
         head = prev;
-
+        return head;
     }
 
     public ListNode reverseBetween(int left, int right) {
@@ -195,6 +195,23 @@ public class LinkedList {
         return merge(left, right);
     }
 
+    public boolean isPalindrome(ListNode head) {
+        ListNode mid = middleNode(head);
+        ListNode headSecond = reverse(mid);
+        ListNode toRereverse = headSecond;
+
+        while (head != null && headSecond != null) {
+            if (head.val != headSecond.val) {
+                break;
+            }
+            head = head.next;
+            headSecond = headSecond.next;
+        }
+
+        reverse(toRereverse);
+        return head == null || headSecond == null;
+    }
+
     public void bubbleSort() {
         bubbleSort(size - 1, 0);
     }
@@ -210,7 +227,7 @@ public class LinkedList {
             ListNode first = get(col);
             ListNode second = get(col + 1);
 
-            if (first.value > second.value) {
+            if (first.val > second.val) {
 
                 if (first == head) {
                     head = second;
@@ -238,14 +255,14 @@ public class LinkedList {
 
     public ListNode middleNode(ListNode head) {
 
-        ListNode midPrev = null;
-        while (head != null && head.next != null) {
-            midPrev = (midPrev == null) ? head : midPrev.next;
-            head = head.next.next;
-        }
-        ListNode mid = midPrev.next;
-        midPrev.next = null;
-        return mid;
+       ListNode s = head;
+       ListNode f = head;
+
+       while (f != null && f.next != null){
+           s = s.next;
+           f = f.next.next;
+       }
+       return s;
     }
 
     public ListNode merge(ListNode list1, ListNode list2) {
@@ -254,7 +271,7 @@ public class LinkedList {
         ListNode dummyHead = new ListNode();
         ListNode tail = dummyHead;
         while (list1 != null && list2 != null) {
-            if (list1.value < list2.value) {
+            if (list1.val < list2.val) {
                 tail.next = list1;
                 list1 = list1.next;
             } else {
@@ -286,7 +303,7 @@ public class LinkedList {
 
     public int deleteFirst() {
 
-        int val = head.value;
+        int val = head.val;
         head = head.next;
 
         if (head == null) {
@@ -310,7 +327,7 @@ public class LinkedList {
 
         ListNode beforeNode = get(index - 1);
 
-        int value = beforeNode.next.value;
+        int value = beforeNode.next.val;
 
         beforeNode.next = beforeNode.next.next;
 
@@ -323,7 +340,7 @@ public class LinkedList {
         ListNode temp = head;
 
         while (temp != null) {
-            if (temp.value == value) {
+            if (temp.val == value) {
                 return temp;
             }
             temp = temp.next;
@@ -356,7 +373,7 @@ public class LinkedList {
         ListNode secondLast = get(size - 2);
         // we can also get the pointer to second last node with for loop from i=0 to size - 2.
 
-        int val = tail.value;
+        int val = tail.val;
         tail = secondLast;
         tail.next = null;
 
@@ -413,7 +430,7 @@ public class LinkedList {
         ListNode temp = head;
 
         while (temp != null) {
-            System.out.print(temp.value + " -> ");
+            System.out.print(temp.val + " -> ");
             temp = temp.next;
         }
 
@@ -423,18 +440,18 @@ public class LinkedList {
 
 
     public class ListNode {
-        private int value;
+        private int val;
         private ListNode next;
 
         public ListNode() {
         }
 
         public ListNode(int value) {
-            this.value = value;
+            this.val = value;
         }
 
         public ListNode(int value, ListNode next) {
-            this.value = value;
+            this.val = value;
             this.next = next;
         }
     }
