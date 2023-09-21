@@ -112,6 +112,9 @@ public class LinkedList {
         return count;
     }
 
+    /**
+     * Reverse a linked list.
+     */
     public void reverse() {
 
         if (size <= 1) {
