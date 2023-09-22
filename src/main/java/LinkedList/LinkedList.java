@@ -139,7 +139,54 @@ public class LinkedList {
         return head;
     }
 
-    public ListNode reverseBetween(int left, int right) {
+    public void reorder() {
+        if (head == null) {
+            return;
+        }
+
+        ListNode mid = middleNode(head);
+        ListNode headSecond = reverse(mid);
+
+        while (head != null && headSecond != null) {
+            ListNode headNextCache = head.next;
+            ListNode headSecondNextCache = headSecond.next;
+            head.next = headSecond;
+            headSecond.next = headNextCache;
+            head = headNextCache;
+            headSecond = headSecondNextCache;
+        }
+
+        if (head != null) {
+            head.next = null;
+        }
+    }
+
+    public ListNode reverseKGroup(int k) {
+
+        int first = 1;
+        int second = first + k - 1;
+        int size = getSize(head);
+        while (second <= size) {
+            ListNode reversed = reverseBetween(head, first, second);
+            head = reversed;
+            first = second + 1;
+            second = first + k - 1;
+        }
+
+        return head;
+    }
+
+    private int getSize(ListNode head) {
+        int size = 0;
+        while (head != null) {
+            head = head.next;
+            size++;
+        }
+        return size;
+    }
+
+
+    public ListNode reverseBetween(ListNode head, int left, int right) {
 
         if (left == right) {
             return head;
@@ -176,6 +223,65 @@ public class LinkedList {
         }
 
         newEnd.next = current;
+        return head;
+    }
+
+    public ListNode rotateRight(int k) {
+
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        int size = getSize(head);
+
+        k = k % size;
+
+        while (k > 0) {
+
+            ListNode prev = head;
+            ListNode current = head.next;
+
+            ListNode cacheHead = head;
+
+            while (current.next != null) {
+                prev = current;
+                current = current.next;
+            }
+
+            current.next = cacheHead;
+            prev.next = null;
+            head = current;
+            k--;
+        }
+        return head;
+    }
+
+    public ListNode rotateRightOptimized(int k) {
+
+        if (k < 0 || head == null || head.next == null) {
+            return head;
+        }
+
+        int size = getSize(head);
+
+        ListNode temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = head;
+
+
+        int rotations = k % size;
+
+        ListNode headPointer = head;
+
+        for (int i = 0; i < (size - rotations - 1); i++) {
+            headPointer = headPointer.next;
+        }
+        head = headPointer.next;
+        headPointer.next = null;
         return head;
     }
 
@@ -255,14 +361,14 @@ public class LinkedList {
 
     public ListNode middleNode(ListNode head) {
 
-       ListNode s = head;
-       ListNode f = head;
+        ListNode s = head;
+        ListNode f = head;
 
-       while (f != null && f.next != null){
-           s = s.next;
-           f = f.next.next;
-       }
-       return s;
+        while (f != null && f.next != null) {
+            s = s.next;
+            f = f.next.next;
+        }
+        return s;
     }
 
     public ListNode merge(ListNode list1, ListNode list2) {
