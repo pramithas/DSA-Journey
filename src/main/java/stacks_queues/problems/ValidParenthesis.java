@@ -38,7 +38,7 @@ public class ValidParenthesis {
                 }
             }
         }
-        return true;
+        return strStack.isEmpty();
     }
 
     public static void main(String[] args) {
