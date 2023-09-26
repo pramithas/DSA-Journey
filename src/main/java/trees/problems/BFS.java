@@ -17,7 +17,6 @@ public class BFS {
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-
         while (!queue.isEmpty()) {
             int levelSize = queue.size();
             List<Integer> currentLevel = new ArrayList<>(levelSize);
