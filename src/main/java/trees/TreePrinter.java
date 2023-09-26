@@ -6,13 +6,13 @@ import java.util.List;
 
 public class TreePrinter {
 
-    public static <T extends Comparable<?>> void printNode(Node root) {
+    public static <T extends Comparable<?>> void printNode(TreeNode root) {
         int maxLevel = maxLevel(root);
 
         printNodeInternal(Collections.singletonList(root), 1, maxLevel);
     }
 
-    private static <T extends Comparable<?>> void printNodeInternal(List<Node> nodes, int level, int maxLevel) {
+    private static <T extends Comparable<?>> void printNodeInternal(List<TreeNode> nodes, int level, int maxLevel) {
         if (nodes.isEmpty() || isAllElementsNull(nodes))
             return;
 
@@ -23,12 +23,12 @@ public class TreePrinter {
 
         printWhitespaces(firstSpaces);
 
-        List<Node> newNodes = new ArrayList<>();
-        for (Node node : nodes) {
-            if (node != null) {
-                System.out.print(node.value);
-                newNodes.add(node.left);
-                newNodes.add(node.right);
+        List<TreeNode> newNodes = new ArrayList<>();
+        for (TreeNode TreeNode : nodes) {
+            if (TreeNode != null) {
+                System.out.print(TreeNode.val);
+                newNodes.add(TreeNode.left);
+                newNodes.add(TreeNode.right);
             } else {
                 newNodes.add(null);
                 newNodes.add(null);
@@ -73,11 +73,11 @@ public class TreePrinter {
             System.out.print(" ");
     }
 
-    private static <T extends Comparable<?>> int maxLevel(Node node) {
-        if (node == null)
+    private static <T extends Comparable<?>> int maxLevel(TreeNode TreeNode) {
+        if (TreeNode == null)
             return 0;
 
-        return Math.max(maxLevel(node.left), maxLevel(node.right)) + 1;
+        return Math.max(maxLevel(TreeNode.left), maxLevel(TreeNode.right)) + 1;
     }
 
     private static <T> boolean isAllElementsNull(List<T> list) {
