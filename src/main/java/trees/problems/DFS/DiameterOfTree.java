@@ -11,14 +11,6 @@ public class DiameterOfTree {
 
     public int diameterOfBinaryTree(TreeNode root) {
 
-        if (root == null) {
-            return 0;
-        }
-
-        if (root.left == null && root.right == null) {
-            return 1;
-        }
-
         height(root);
         return diameter - 1;
     }

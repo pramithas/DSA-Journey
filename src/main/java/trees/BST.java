@@ -38,23 +38,24 @@ public class BST {
         insert(val, root);
     }
 
-    private TreeNode insert(int val, TreeNode TreeNode) {
+    private TreeNode insert(int val, TreeNode treeNode) {
 
-        if (TreeNode == null) {
+        if (treeNode == null) {
             TreeNode n = new TreeNode(val);
             return n;
         }
 
-        if (val < TreeNode.getValue()) {
-            TreeNode.left = insert(val, TreeNode.left);
+        // Keep on comparing the value and find the place where the new node can be added.
+        if (val < treeNode.val) {
+            treeNode.left = insert(val, treeNode.left);
         }
-        if (val > TreeNode.getValue()) {
-            TreeNode.right = insert(val, TreeNode.right);
+        if (val > treeNode.val) {
+            treeNode.right = insert(val, treeNode.right);
         }
 
-        TreeNode.height = Math.max(height(TreeNode.left), height(TreeNode.right)) + 1;
+        treeNode.height = Math.max(height(treeNode.left), height(treeNode.right)) + 1;
 
-        return TreeNode;
+        return treeNode;
     }
 
     public boolean balanced() {
