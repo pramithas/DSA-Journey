@@ -1,4 +1,4 @@
-package trees.problems;
+package trees.problems.BFS;
 
 import trees.BST;
 import trees.TreeNode;

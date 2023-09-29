@@ -1,6 +1,5 @@
-package trees.problems;
+package trees.problems.BFS;
 
-import trees.BST;
 import trees.BinaryTree;
 import trees.TreeNode;
 

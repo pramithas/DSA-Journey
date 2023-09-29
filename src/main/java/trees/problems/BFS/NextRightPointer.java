@@ -1,11 +1,9 @@
-package trees.problems;
+package trees.problems.BFS;
 
 import trees.BST;
 import trees.TreeNode;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 class NextRightPointer {
