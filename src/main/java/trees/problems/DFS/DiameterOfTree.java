@@ -5,6 +5,9 @@ import trees.TreeNode;
 
 import java.util.Scanner;
 
+/**
+ * https://leetcode.com/problems/diameter-of-binary-tree/
+ */
 public class DiameterOfTree {
 
     int diameter = 0;
