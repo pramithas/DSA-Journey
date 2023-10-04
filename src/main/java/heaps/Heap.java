@@ -1,6 +1,8 @@
 package heaps;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Heap<T extends Comparable<T>> {
 
@@ -11,9 +13,7 @@ public class Heap<T extends Comparable<T>> {
     }
 
     private void swap(int first, int second) {
-        T temp = list.get(first);
-        list.add(first, list.get(second));
-        list.add(second, temp);
+        Collections.swap(list, first, second);
     }
 
     private int parent(int index) {
@@ -61,6 +61,8 @@ public class Heap<T extends Comparable<T>> {
             list.set(0, last);
             downHeap(0);
         }
+
+        return temp;
     }
 
     private void downHeap(int index) {
@@ -82,6 +84,32 @@ public class Heap<T extends Comparable<T>> {
             swap(min, index);
             downHeap(min);
         }
+    }
+
+    public List<T> heapSort() throws Exception {
+
+        List<T> data = new ArrayList<>();
+
+        while (!list.isEmpty()) {
+            data.add(this.remove());
+        }
+
+        return data;
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Heap<Integer> heap = new Heap<>();
+
+        heap.insert(34);
+        heap.insert(45);
+        heap.insert(22);
+        heap.insert(89);
+        heap.insert(76);
+
+        //System.out.println(heap.remove());
+        List list = heap.heapSort();
+        System.out.println(list);
     }
 
 }
