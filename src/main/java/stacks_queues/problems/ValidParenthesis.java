@@ -1,6 +1,5 @@
 package stacks_queues.problems;
 
-import java.util.Map;
 import java.util.Stack;
 
 public class ValidParenthesis {
