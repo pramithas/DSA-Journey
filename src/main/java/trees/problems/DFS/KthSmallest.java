@@ -65,21 +65,30 @@ public class KthSmallest {
         return number;
     }
 
-    private void helper(TreeNode n) {
+    /**
+     * Basically, you are traversing the nodes in right node, current node, and left node format. And, we decrease count in each node and checked whether
+     * the count is zero in each node.
+     *
+     * @param tree
+     */
+    private void helper(TreeNode tree) {
 
-        if (n.left != null) {
-            helper(n.left);
+        if (tree == null) {
+            return;
         }
+
+        helper(tree.right);
+
 
         count--;
 
         if (count == 0) {
-            number = n.val;
+            number = tree.val;
             return;
         }
-        if (n.right != null) {
-            helper(n.right);
-        }
+
+
+        helper(tree.left);
     }
 
     public static void main(String[] args) {

@@ -5,26 +5,29 @@ import trees.TreeNode;
 
 import java.util.Scanner;
 
+/**
+ * https://leetcode.com/problems/validate-binary-search-tree/
+ */
 public class ValidateBST {
 
     boolean leftCondition = true;
     boolean rightCondition = true;
 
     public boolean isValidBST(TreeNode root) {
-        return helper(root, null,null);
+        return helper(root, null, null);
     }
 
     private boolean helper(TreeNode root, Integer start, Integer end) {
 
-        if(root == null){
+        if (root == null) {
             return true;
         }
 
-        if(start != null && start >= root.val){
+        if (start != null && start >= root.val) {
             return false;
         }
 
-        if(end != null && end <= root.val){
+        if (end != null && end <= root.val) {
             return false;
         }
 
@@ -35,7 +38,7 @@ public class ValidateBST {
     }
 
 
-//    public boolean isValidBST(TreeNode root) {
+    //    public boolean isValidBST(TreeNode root) {
 //        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
 //    }
 //

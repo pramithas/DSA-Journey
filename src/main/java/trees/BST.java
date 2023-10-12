@@ -1,8 +1,10 @@
 package trees;
 
+import com.sun.source.tree.Tree;
+
 public class BST {
 
-    private TreeNode root;
+    public TreeNode root;
 
     public TreeNode getRoot() {
         return root;
@@ -38,6 +40,65 @@ public class BST {
         insert(val, root);
     }
 
+    public TreeNode delete(int value) {
+        return delete(this.root, value);
+    }
+
+    private TreeNode delete(TreeNode root, int value) {
+
+        if (root == null) {
+            return null;
+        }
+
+        // Recursive call to reach the node to be deleted.
+        if (value < root.val) {
+            root.left = delete(root.left, value);
+            // Return statement is needed when the node reaches the null values.
+            return root;
+        } else if (value > root.val) {
+            root.right = delete(root.right, value);
+            return root;
+        } else {
+            // if both child are null, just return null. i.e.delete the node without any hassle,
+            // since it is the only node.
+            if (root.left == null && root.right == null) {
+                return null;
+            }
+
+            // if only left present, replace the parent node left.
+            if (root.left != null && root.right == null) {
+                root.val = root.left.val;
+                root.right = root.left.right;
+                root.left = root.left.left;
+
+                // This code below will not change the original root node but only the copy of the root node. So, the below code does not work. Above
+                //code actually copies the below node to the place of node being deleted. So, it changes the structure of the original root.
+                // root = root.left;
+                return root;
+            }
+
+            if (root.left == null && root.right != null) {
+                // root.value = root.right.value;
+                // root.left = root.right.left;
+                // root.right= root.right.right;
+                root = root.right;
+                return root;
+            }
+
+            if (root.left != null && root.right != null) {
+                int smallest = smallestValue(root.right);
+                root.val = smallest;
+                root.right = delete(root.right, smallest);
+                return root;
+            }
+        }
+        return root;
+    }
+
+    public int smallestValue(TreeNode root) {
+        return root.left == null ? root.val : smallestValue(root.left);
+    }
+
     private TreeNode insert(int val, TreeNode treeNode) {
 
         if (treeNode == null) {
@@ -46,6 +107,8 @@ public class BST {
         }
 
         // Keep on comparing the value and find the place where the new node can be added.
+        // Why we do not need to maintain start and end pointer similar to the one we did for populating bst with random elements.
+        // Here, the array is sorted, that is why this might not be needed. See in more depth.
         if (val < treeNode.val) {
             treeNode.left = insert(val, treeNode.left);
         }
@@ -57,6 +120,7 @@ public class BST {
 
         return treeNode;
     }
+
 
     public boolean balanced() {
         return balanced(root);
@@ -135,11 +199,9 @@ public class BST {
 
     public static void main(String[] args) {
         BST bst = new BST();
-        int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        bst.populatedSorted(arr);
-//        bst.populate(arr);
-        bst.display();
-        bst.inOrder();
+        int[] arr = {10, 5};
+        bst.populate(arr);
+        bst.delete(10);
     }
 
     private void populate(int[] arr) {
