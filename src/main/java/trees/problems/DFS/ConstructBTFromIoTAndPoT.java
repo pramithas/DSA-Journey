@@ -17,6 +17,7 @@ public class ConstructBTFromIoTAndPoT {
         }
 
         TreeNode root = new TreeNode(preorder[0]);
+
         int mid = 0;
         for (; inorder[mid] != root.val && mid < inorder.length; mid++) {
         }
