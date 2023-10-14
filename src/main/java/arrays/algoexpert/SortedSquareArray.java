@@ -6,6 +6,7 @@ public class SortedSquareArray {
 
     /**
      * We start populating result from the last array because if the first number is negative, its square will be the largest number.
+     * We are using two pointer approach here.
      */
     public static int[] sortedSquaredArray(int[] array) {
         int lastIdx = array.length - 1;
