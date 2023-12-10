@@ -1,5 +1,8 @@
 package Arrays;
 
+/**
+ * Revision date: 10th December, 2023.
+ */
 public class FindIfArrayIsSortedOrNot {
 
     public static boolean isSorted(int arr[]) {
@@ -24,8 +27,12 @@ public class FindIfArrayIsSortedOrNot {
         if (start == end) {
             return true;
         }
+        // December 10, 2023.
+        // Basically, we are checking every element with the previous one if the previous one is smaller or equal. And, we are making each
+        // check in a different recursive call.
+
         if (arr[end] >= arr[end - 1]) {
-            // Just propagates the value up the call stack, nothing else.
+            // If the current check passes, check the remaining numbers as well. i.e. propagate the value up the call stack, nothing else.
             return helper(start, end - 1, arr);
         } else {
             return false;

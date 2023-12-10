@@ -1,8 +1,11 @@
-package Arrays;
+package recursion.arrays;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Revised on 10th December, 2023.
+ */
 public class LinearSearchRecursion {
 
     public static void main(String[] args) {
@@ -31,8 +34,8 @@ public class LinearSearchRecursion {
 
         List<Integer> indices = new ArrayList<>();
 
-        /**
-         * Two base conditions. One of the two base cases with return conditions.
+        /*
+         * This will be the belowans for the method calling it. It will never have the value for indices.
          */
         if (index == arr.length) {
             return indices;

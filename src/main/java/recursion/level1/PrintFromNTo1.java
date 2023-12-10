@@ -24,7 +24,7 @@ public class PrintFromNTo1 {
             System.out.println(n);
             return;
         }
-        print1To5(n-1);
+        print1To5(n - 1);
         System.out.println(n);
     }
 }
