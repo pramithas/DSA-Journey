@@ -1,9 +1,12 @@
 package recursion.subsequence;
 
+/**
+ * Revised dec 21, 2023.
+ */
 public class RemoveAChar {
 
     public static void main(String[] args) {
-        String input = "baccadaagffdddaa";
+        String input = "bacca";
         System.out.println(removeCharV2(input));
 
     }
@@ -16,28 +19,28 @@ public class RemoveAChar {
 
     private static String remove(String input, String ans) {
 
-        if(input.length() == 0){
+        if (input.length() == 0) {
             return ans;
         }
 
-        if(input.charAt(0) == 'a'){
-        }else {
-            ans+=input.charAt(0);
+        if (input.charAt(0) == 'a') {
+        } else {
+            ans += input.charAt(0);
         }
         return remove(input.substring(1), ans);
     }
 
     private static String removeCharV2(String input) {
 
-        if(input.isEmpty()){
+        if (input.isEmpty()) {
             return "";
         }
 
         char ch = input.charAt(0);
 
-        if(ch == 'a'){
+        if (ch == 'a') {
             return removeCharV2(input.substring(1));
-        }else {
+        } else {
             return ch + removeCharV2(input.substring(1));
         }
     }

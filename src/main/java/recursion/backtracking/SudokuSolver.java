@@ -23,34 +23,37 @@ public class SudokuSolver {
     }
 
     static boolean solve(int[][] board) {
+
         int n = board.length;
         int row = -1;
         int col = -1;
 
         boolean emptyLeft = true;
 
-        // this is how we are replacing the r,c from arguments
+        // Iterating through the sudoku board to find the first empty cell.
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
+                // If the particular cell is empty
                 if (board[i][j] == 0) {
                     row = i;
                     col = j;
                     emptyLeft = false;
+                    // This will break the inner loop
                     break;
                 }
             }
-            // if you found some empty element in row, then break
-            if (emptyLeft == false) {
+            // if you found some empty element in row, then break. And, this will break the outer loop.
+            if (!emptyLeft) {
                 break;
             }
         }
 
-        if (emptyLeft == true) {
+        if (emptyLeft) {
             return true;
             // soduko is solved
         }
 
-        // backtrack
+        // backtrack in else condition.
         for (int number = 1; number <= 9; number++) {
             if (isSafe(board, row, col, number)) {
                 board[row][col] = number;
@@ -63,6 +66,8 @@ public class SudokuSolver {
                 }
             }
         }
+        // There is an empty cell, where no number from 1-9 can be added. Does this return false value used
+        // anywhere? Does it have any significance?
         return false;
     }
 
@@ -77,7 +82,7 @@ public class SudokuSolver {
 
 
     static boolean isSafe(int[][] board, int row, int col, int num) {
-        // check the row
+        // 1. check the row
         for (int i = 0; i < board.length; i++) {
             // check if the number is in the row
             if (board[row][i] == num) {
@@ -85,7 +90,7 @@ public class SudokuSolver {
             }
         }
 
-        // check the col
+        // 2. check the col
         for (int[] nums : board) {
             // check if the number is in the col
             if (nums[col] == num) {
@@ -93,6 +98,8 @@ public class SudokuSolver {
             }
         }
 
+        // 2. Check inside the cube.
+        // Find the start row and col for a random cell.
         int sqrt = (int) (Math.sqrt(board.length));
         int rowStart = row - row % sqrt;
         int colStart = col - col % sqrt;

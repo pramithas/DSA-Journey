@@ -50,7 +50,7 @@ public class NKnights {
         }
 
         // If the current position is not safe, move on to the next column.
-
+        // Why this is not done in NQueen problem.
         solveNKnight(board, row, col + 1, knights);
     }
 

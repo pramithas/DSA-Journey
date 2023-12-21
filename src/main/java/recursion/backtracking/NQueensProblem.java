@@ -41,7 +41,7 @@ public class NQueensProblem {
 
         //placing the queen and checking for every row and col.
         for (int col = 0; col < board.length; col++) {
-            // If safe will always be true for first row.
+            //  isSafe will always be true for first row.
             if (isSafe(board, row, col)) {
                 board[row][col] = "Q";
                 count += queens(board, row + 1, lists);
