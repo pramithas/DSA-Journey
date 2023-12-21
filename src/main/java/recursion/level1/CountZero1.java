@@ -18,7 +18,7 @@ public class CountZero1 {
 
         /*
          * It is just re-calling the method with updated value of the counter. The return statement is just to propagate
-         * the last returned value i.e. the total count value from the base condition up the stack finally to the main method.
+         * the last returned value i.e. the total count value  from the base condition up the stack finally to the main method.
          */
         if (n % 10 == 0) {
             return count(n / 10, count + 1);
