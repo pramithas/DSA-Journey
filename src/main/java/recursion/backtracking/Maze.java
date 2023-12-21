@@ -1,22 +1,37 @@
 package recursion.backtracking;
 
+/**
+ * Revised on Dec 21, 2023.
+ */
 public class Maze {
 
     public static void main(String[] args) {
-        printPath(3, 3, "");
+        printPath(2, 2, "");
     }
 
+    /**
+     * Counts the nummber of paths.
+     * @param r
+     * @param c
+     * @return
+     */
     static int count(int r, int c) {
         if (r == 1 || c == 1) {
             return 1;
         }
 
-        int left = count(r - 1, c);
+        int down = count(r - 1, c);
         int right = count(r, c - 1);
 
-        return left + right;
+        return down + right;
     }
 
+    /**
+     * Displays the path from source to goal.
+     * @param r
+     * @param c
+     * @param processed
+     */
     static void printPath(int r, int c, String processed) {
 
         if (r == 1 && c == 1) {
@@ -24,7 +39,7 @@ public class Maze {
             return;
         }
 
-        // Not just center diagonal. It means diagonal movement from any cell to other cell.
+        // Not just central diagonal. It means diagonal movement from any cell to other cell.
         if (r > 1 && c > 1) {
             printPath(r - 1, c - 1, processed + "D");
         }

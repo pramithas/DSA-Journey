@@ -1,11 +1,11 @@
 package Arrays;
 
 /**
- * Revision date: 10th December, 2023.
+ * Revision date: 21th December, 2023.
  */
 public class FindIfArrayIsSortedOrNot {
 
-    public static boolean isSorted(int arr[]) {
+    public static boolean isSorted(int[] arr) {
 
         if (arr.length == 0) {
             return false;
@@ -35,6 +35,8 @@ public class FindIfArrayIsSortedOrNot {
             // If the current check passes, check the remaining numbers as well. i.e. propagate the value up the call stack, nothing else.
             return helper(start, end - 1, arr);
         } else {
+            // If in any case this else block is executed, this is the final value that the main method returns. This
+            // value will be propagated upwards and is the final answer.
             return false;
         }
     }
@@ -52,6 +54,6 @@ public class FindIfArrayIsSortedOrNot {
 
     public static void main(String[] args) {
         int arr[] = {1, 2, 3, 7, 4, 5, 6};
-        System.out.println(isSortedV1(arr, 0));
+        System.out.println(isSorted(arr));
     }
 }

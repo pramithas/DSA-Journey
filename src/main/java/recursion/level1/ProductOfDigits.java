@@ -1,5 +1,8 @@
 package recursion.level1;
 
+/**
+ * Revised on december 21.
+ */
 public class ProductOfDigits {
     public static int product(int n) {
         if (n == 0) {
