@@ -6,10 +6,10 @@ import java.util.List;
 
 public class LetterCombinationPhone {
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(findPermuations("9").toArray()));
+        System.out.println(Arrays.toString(findPermutations("23").toArray()));
     }
 
-    public static List<String> findPermuations(String number) {
+    public static List<String> findPermutations(String number) {
         List<String> result = new ArrayList<>();
 
         if (number.isEmpty()) {

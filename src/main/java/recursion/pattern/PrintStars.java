@@ -11,7 +11,8 @@ public class PrintStars {
             return;
         }
 
-        // By changing the position of the print statement(before or after the recursive call, you can revert the pattern)
+        // By changing the position of the print statement(before or after the recursive call,
+        // you can revert the pattern)
         if (c < r) {
             printStars(r, c + 1);
             System.out.print("*");
@@ -28,7 +29,7 @@ public class PrintStars {
      * @param r
      * @param c
      */
-    public static void bubbleSort(int arr[], int r, int c) {
+    public static void bubbleSort(int[] arr, int r, int c) {
 
         if (r == 0) {
             return;
@@ -46,6 +47,9 @@ public class PrintStars {
         }
     }
 
+    /*
+    Do not refer this approach.
+     */
     public static void selectionSort(int arr[], int r, int c, int max) {
 
         if (r == 0) {
@@ -69,30 +73,37 @@ public class PrintStars {
         }
     }
 
-    public static void selectionSort2(int arr[], int r, int c, int max) {
+    /*
+    Refer this approach.
+     */
+    public static void selectionSort2(int[] arr, int r, int c, int max) {
 
         if (r == 0) {
             return;
         }
 
+        /*
+         * We are just incrementing the column by 1 and storing the max value.
+         */
         if (c <= r) {
             if (arr[c] > arr[max]) {
-                selectionSort(arr, r, c + 1, c);
+                selectionSort2(arr, r, c + 1, c);
             }else {
-                selectionSort(arr, r, c + 1, max);
+                selectionSort2(arr, r, c + 1, max);
             }
 
         } else {
             int temp = arr[r];
             arr[r] =  arr[max];
             arr[max] = temp;
-            selectionSort(arr, r - 1, 0, 0);
+            selectionSort2(arr, r - 1, 0, 0);
         }
     }
 
     public static void main(String[] args) {
-        int arr[] = {3, 6, 2, 7, 1,4,1,1,5,6};
+        int[] arr = {3, 6, 2, 7, 1,4,1,1,5,6};
         selectionSort2(arr, arr.length-1, 0,0);
         System.out.println(Arrays.toString(arr));
+        //printStars(5,0);
     }
 }

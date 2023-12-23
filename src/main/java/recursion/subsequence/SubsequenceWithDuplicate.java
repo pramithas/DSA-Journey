@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Revised on dec 22.
+ */
 public class SubsequenceWithDuplicate {
 
     public static void main(String[] args) {
-        int arr[] = {5, 5, 5, 5, 5};
+        int arr[] = {1,2,2};
         System.out.println(Arrays.toString(subsetWithoutDuplicates(arr).toArray()));
     }
 
@@ -24,6 +27,7 @@ public class SubsequenceWithDuplicate {
         for (int i = 0; i < nums.length; i++) {
 
             start = 0;
+
             int n = outer.size();
 
             if (i > 0 && nums[i] == nums[i - 1]) {

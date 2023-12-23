@@ -4,21 +4,20 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Revised on dec 22.
+ */
 public class FindSubset {
 
     public static void findSubsets(String input) {
-
         String output = "";
-
         find(output, input);
-
-
     }
 
     private static void find(String output, String input) {
 
         if (input.isEmpty()) {
-            System.out.print(output);
+            System.out.println(output);
             return;
         }
 
@@ -27,7 +26,7 @@ public class FindSubset {
     }
 
     public static void main(String[] args) {
-        findSubsetsAscii("abc");
+        findSubsets("abc");
         //System.out.println(Arrays.toString(result.toArray()));
     }
 
