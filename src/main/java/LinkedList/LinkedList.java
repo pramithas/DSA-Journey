@@ -2,43 +2,13 @@ package LinkedList;
 
 public class LinkedList {
 
-    private ListNode head;
+    protected ListNode head;
     private ListNode tail;
 
     private int size;
 
     public LinkedList() {
         this.size = 0;
-    }
-
-    public void insertFirst(int val) {
-
-        ListNode node = new ListNode(val);
-        node.next = head;
-        head = node;
-
-        if (tail == null) {
-            tail = head;
-        }
-
-        size++;
-    }
-
-    public void removeDuplicates() {
-
-        ListNode temp = head;
-
-        while (temp.next != null) {
-            // How to modify a linked list? manipulate the next pointer.
-            if (temp.val == temp.next.val) {
-                temp.next = temp.next.next;
-                size--;
-            } else {
-                temp = temp.next;
-            }
-        }
-        tail = temp;
-        tail.next = null;
     }
 
     public static LinkedList merge(LinkedList l1, LinkedList l2) {
@@ -69,6 +39,36 @@ public class LinkedList {
         }
 
         return result;
+    }
+
+    public void insertFirst(int val) {
+
+        ListNode node = new ListNode(val);
+        node.next = head;
+        head = node;
+
+        if (tail == null) {
+            tail = head;
+        }
+
+        size++;
+    }
+
+    public void removeDuplicates() {
+
+        ListNode temp = head;
+
+        while (temp.next != null) {
+            // How to modify a linked list? manipulate the next pointer.
+            if (temp.val == temp.next.val) {
+                temp.next = temp.next.next;
+                size--;
+            } else {
+                temp = temp.next;
+            }
+        }
+        tail = temp;
+        tail.next = null;
     }
 
     public boolean hasCycle(ListNode head) {
@@ -113,7 +113,7 @@ public class LinkedList {
     }
 
     /**
-     * Reverse a linked list.
+     * Reverse a linked list using iterative approach.
      */
     public ListNode reverse(ListNode head) {
 
@@ -138,6 +138,22 @@ public class LinkedList {
         head = prev;
         return head;
     }
+
+    public void reverseRec(ListNode node) {
+        if (node == tail) {
+            head = tail;
+            return;
+        }
+
+        reverseRec(node.next);
+        // Adding reverse link.
+        tail.next = node;
+        // moving tail one step back.
+        tail = node;
+        // removing the old forward link.
+        tail.next = null;
+    }
+
 
     public void reorder() {
         if (head == null) {
@@ -288,17 +304,40 @@ public class LinkedList {
 
     public ListNode sort(ListNode head) {
 
-        ListNode temp = head;
-
-        if (temp == null || temp.next == null) {
-            return temp;
+        if (head == null || head.next == null) {
+            return head;
         }
 
-        ListNode mid = middleNode(temp);
-        ListNode left = sort(temp);
+        ListNode mid = getMid(head);
+        ListNode left = sort(head);
         ListNode right = sort(mid);
 
         return merge(left, right);
+    }
+
+    /**
+     * After calculating mid, update the head also. i.e. head will be every thing before the mid.
+     */
+    ListNode getMid(ListNode head) {
+
+        ListNode slow = head;
+        ListNode fast = head;
+
+        // We need midPrev to bisect the list and get the first half. We do midprev.next=null,so that we get
+        //elements before mid.
+        ListNode midPrev = null;
+
+        while (fast != null && fast.next != null) {
+            midPrev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        assert slow != null;
+        ListNode mid = slow;
+        assert midPrev != null;
+        midPrev.next = null;
+        return mid;
     }
 
     public boolean isPalindrome(ListNode head) {
@@ -335,10 +374,14 @@ public class LinkedList {
 
             if (first.val > second.val) {
 
+                // When the first node is the head.
                 if (first == head) {
+                    // create the diagram after swapping and the code becomes obvious.
                     head = second;
                     first.next = second.next;
                     second.next = first;
+
+                    // When the second node is the tail.
                 } else if (second == tail) {
                     ListNode prev = get(col - 1);
                     prev.next = second;
@@ -412,6 +455,7 @@ public class LinkedList {
         int val = head.val;
         head = head.next;
 
+        // There is only one element in the linked list.f
         if (head == null) {
             tail = null;
         }
@@ -469,12 +513,6 @@ public class LinkedList {
         if (size <= 1) {
             return deleteFirst();
         }
-
-//        Node temp = head;
-//
-//        while (temp.next != tail) {
-//            temp = temp.next;
-//        }
 
         ListNode secondLast = get(size - 2);
         // we can also get the pointer to second last node with for loop from i=0 to size - 2.

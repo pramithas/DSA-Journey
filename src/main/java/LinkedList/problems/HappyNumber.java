@@ -14,12 +14,13 @@ public class HappyNumber {
             // The number itself is a pointer to itself.
             slow = findSumOfSquares(slow);
             fast = findSumOfSquares(findSumOfSquares(fast));
+            // Why this condition is met when the number is happy number. We know this is met when the number is
+            // not happy and there is cycle.
+            // Ans: Because, even if the number is happy, there will be a cycle. And, the cycle will start at 1 and
+            // the following nodes will be all 1.
         } while (fast != slow);
 
-        if (slow == 1) {
-            return true;
-        }
-        return false;
+        return slow == 1;
     }
 
     public int findSumOfSquares(int n) {
