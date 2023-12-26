@@ -35,6 +35,7 @@ public class RightSideView {
                     queue.offer(currentNode.right);
                 }
             }
+            // currentNode will always contain the last element.
             result.add(currentNode.val);
         }
         return result;

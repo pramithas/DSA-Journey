@@ -183,12 +183,64 @@ public class LinkedList {
         int second = first + k - 1;
         int size = getSize(head);
         while (second <= size) {
-            ListNode reversed = reverseBetween(head, first, second);
-            head = reversed;
+            head = reverseBetween(head, first, second);
             first = second + 1;
             second = first + k - 1;
         }
 
+        return head;
+    }
+
+    // Should not allow modifying less than k items.
+    public ListNode reverseKGroupKunal(int k) {
+
+       if(head == null || k <= 1){
+           return head;
+       }
+
+        ListNode current = head;
+        ListNode prev = null;
+
+//        for (int i = 0; current != null && i < left - 1; i++) {
+//            prev = current;
+//            current = current.next;
+//        }
+
+        // The above code is commented because we do not need to move few steps and then reverse. We can start reversing immediately.
+
+        while(true){
+
+            ListNode last = prev;
+            ListNode newEnd = current;
+
+            //reverse between left and right.
+            ListNode next = current.next;
+
+            for (int i = 0; current != null && i < k; i++) {
+                current.next = prev;
+                prev = current;
+                current = next;
+
+                if(next != null){
+                    next = next.next;
+                }
+            }
+
+            if(last != null){
+                last.next = prev;
+            }else {
+                head = prev;
+            }
+
+            newEnd.next = current;
+
+            // The list has been exhausted.
+            if(current == null){
+                break;
+            }
+
+            prev = newEnd;
+        }
         return head;
     }
 
@@ -324,22 +376,28 @@ public class LinkedList {
         int size = getSize(head);
 
         ListNode temp = head;
-
+        // Find the last node first
         while (temp.next != null) {
             temp = temp.next;
         }
 
+        // Point from that last node to the head.
         temp.next = head;
 
 
+        // When the rotation time is greater than the length of the list.
         int rotations = k % size;
 
         ListNode headPointer = head;
 
+        // How much you need to travel to get to the new head.
         for (int i = 0; i < (size - rotations - 1); i++) {
             headPointer = headPointer.next;
         }
+
         head = headPointer.next;
+
+        // Breaking the old linkage.
         headPointer.next = null;
         return head;
     }
@@ -384,6 +442,7 @@ public class LinkedList {
     }
 
     public boolean isPalindrome(ListNode head) {
+
         ListNode mid = middleNode(head);
         ListNode headSecond = reverse(mid);
         ListNode toRereverse = headSecond;

@@ -41,7 +41,8 @@ public class BFS {
         bst.populatedSorted(arr);
         bst.display();
         BFS bfs = new BFS();
-        bfs.bsf(bst.getRoot());
+        List<List<Integer>> lists = bfs.bsf(bst.getRoot());
+        System.out.println(lists);
     }
 
 }

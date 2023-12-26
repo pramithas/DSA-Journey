@@ -14,11 +14,11 @@ public class BST {
 
     }
 
-    public int height(TreeNode TreeNode) {
-        if (TreeNode == null) {
+    public int height(TreeNode node) {
+        if (node == null) {
             return -1;
         }
-        return TreeNode.height;
+        return node.height;
     }
 
     public boolean isEmpty() {
