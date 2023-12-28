@@ -100,7 +100,8 @@ public class FlattenBinaryTreeToLinkedList {
 
     public void flattenKunal(TreeNode root) {
 
-        // Not modifying the root, but only changing the structure. Thus, using the proxy to the root instead of using root directly.
+        // Not modifying the root, but only changing the structure.
+        // Thus, using the proxy to the root instead of using root directly.
         TreeNode current = root;
         while (current != null) {
 

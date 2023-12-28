@@ -24,12 +24,17 @@ public class DiameterOfTree {
             return 0;
         }
 
+        // Find the height of left subtree.
         int left = height(node.left);
+        // Find the height of right subtree.
         int right = height(node.right);
 
+        // Find diameter for the particular node.
         int dia = left + right + 1;
+        // update the global diameter.
         diameter = Math.max(dia, diameter);
 
+        // To the parent node, return the max height between left and right.
         return Math.max(left, right) + 1;
     }
 

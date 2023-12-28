@@ -32,5 +32,6 @@ public class InvertBinaryTree {
         binaryTree.display();
         InvertBinaryTree invertBinaryTree = new InvertBinaryTree();
         invertBinaryTree.invertTree(binaryTree.getRoot());
+        binaryTree.display();
     }
 }
