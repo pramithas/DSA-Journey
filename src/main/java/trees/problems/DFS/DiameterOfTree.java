@@ -35,6 +35,7 @@ public class DiameterOfTree {
         diameter = Math.max(dia, diameter);
 
         // To the parent node, return the max height between left and right.
+        // Why plus 1?
         return Math.max(left, right) + 1;
     }
 

@@ -1,11 +1,22 @@
 package trees.problems.DFS;
 
+import trees.BinaryTree;
 import trees.TreeNode;
+
+import java.util.Scanner;
 
 /**
  * Revised on December, 29.
  */
 public class LowestCommonAncestor {
+
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.populate(new Scanner(System.in));
+        binaryTree.display();
+        TreeNode result = new LowestCommonAncestor().lowestCommonAncestor(binaryTree.getRoot(), new TreeNode(2), new TreeNode(8));
+        System.out.println("The result is: " + result.val);
+    }
 
     /*
       We have to find the answer as soon as possible closer to the root.

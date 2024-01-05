@@ -34,30 +34,34 @@ public class KthSmallest {
 //        find(root.right, q);
 //    }
 
-//    public int kthSmallest(TreeNode root, int k) {
-//        return helper(root, k).val;
-//    }
-//
-//    private TreeNode helper(TreeNode root, int k) {
-//
-//        if (root == null) {
-//            return null;
-//        }
-//
-//        TreeNode left = helper(root.left, k);
-//
-//        if (left != null) {
-//            return left;
-//        }
-//
-//        count++;
-//
-//        if (count == k) {
-//            return root;
-//        }
-//
-//        return helper(root.right, k);
-//    }
+    public int kthSmallestKunal(TreeNode root, int k) {
+        return helper(root, k).val;
+    }
+
+    private TreeNode helper(TreeNode root, int k) {
+
+        if (root == null) {
+            return null;
+        }
+
+        // It does not return the left node of root.
+        // Until the desired value is got hold of, it will keep on returning null.
+        TreeNode left = helper(root.left, k);
+
+        if (left != null) {
+            return left;
+        }
+
+        count++;
+
+        if (count == k) {
+            return root;
+        }
+
+        // This will keep on returning null until the value is found.
+        TreeNode right =  helper(root.right, k);
+        return right;
+    }
 
     public int kthSmallest(TreeNode root, int k) {
         count = k;
@@ -77,7 +81,7 @@ public class KthSmallest {
             return;
         }
 
-        helper(tree.right);
+        helper(tree.left);
 
 
         count--;
@@ -88,7 +92,7 @@ public class KthSmallest {
         }
 
 
-        helper(tree.left);
+        helper(tree.right);
     }
 
     public static void main(String[] args) {
@@ -96,7 +100,7 @@ public class KthSmallest {
         binaryTree.populate(new Scanner(System.in));
         binaryTree.display();
         KthSmallest kthSmallest = new KthSmallest();
-        int res = kthSmallest.kthSmallest(binaryTree.getRoot(), 3);
+        int res = kthSmallest.kthSmallestKunal(binaryTree.getRoot(), 5);
         System.out.println(res);
     }
 

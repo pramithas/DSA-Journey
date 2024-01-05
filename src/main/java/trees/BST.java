@@ -107,7 +107,7 @@ public class BST {
         }
 
         // Keep on comparing the value and find the place where the new node can be added.
-        // Why we do not need to maintain start and end pointer similar to the one we did for populating bst with random elements.
+        // Why we do not need to maintain start and end pointer similar to the one we did for populating bst with random elements???
         // Here, the array is sorted, that is why this might not be needed. See in more depth.
         if (val < treeNode.val) {
             treeNode.left = insert(val, treeNode.left);

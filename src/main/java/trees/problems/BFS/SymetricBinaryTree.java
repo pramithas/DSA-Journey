@@ -66,7 +66,7 @@ public class SymetricBinaryTree {
             if(left.val != right.val){
                 return false;
             }
-
+            // Insert in such a way that the elements to compare are along side each other.
             queue.add(left.left);
             queue.add(right.right);
             queue.add(left.right);
