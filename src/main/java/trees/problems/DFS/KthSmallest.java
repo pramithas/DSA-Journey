@@ -5,6 +5,10 @@ import trees.TreeNode;
 
 import java.util.Scanner;
 
+/**
+ * Revised on Jan 6.
+ * https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+ */
 public class KthSmallest {
     private static int number = 0;
     private static int count = 0;
@@ -34,6 +38,15 @@ public class KthSmallest {
 //        find(root.right, q);
 //    }
 
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.populate(new Scanner(System.in));
+        binaryTree.display();
+        KthSmallest kthSmallest = new KthSmallest();
+        int res = kthSmallest.kthSmallestKunal(binaryTree.getRoot(), 5);
+        System.out.println(res);
+    }
+
     public int kthSmallestKunal(TreeNode root, int k) {
         return helper(root, k).val;
     }
@@ -59,7 +72,7 @@ public class KthSmallest {
         }
 
         // This will keep on returning null until the value is found.
-        TreeNode right =  helper(root.right, k);
+        TreeNode right = helper(root.right, k);
         return right;
     }
 
@@ -77,13 +90,14 @@ public class KthSmallest {
      */
     private void helper(TreeNode tree) {
 
+        // If the tree is null, no need to check to left or right. You can just return.
         if (tree == null) {
             return;
         }
 
         helper(tree.left);
 
-
+        // In every node, when there is a movement from left to right, the counter is decremented.
         count--;
 
         if (count == 0) {
@@ -93,15 +107,6 @@ public class KthSmallest {
 
 
         helper(tree.right);
-    }
-
-    public static void main(String[] args) {
-        BinaryTree binaryTree = new BinaryTree();
-        binaryTree.populate(new Scanner(System.in));
-        binaryTree.display();
-        KthSmallest kthSmallest = new KthSmallest();
-        int res = kthSmallest.kthSmallestKunal(binaryTree.getRoot(), 5);
-        System.out.println(res);
     }
 
 }
