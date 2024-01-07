@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 /**
  * Revised on December, 29.
+ *
+ * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
  */
 public class LowestCommonAncestor {
 
