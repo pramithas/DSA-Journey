@@ -8,6 +8,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Revised on Jan 10.
+ * https://leetcode.com/problems/sum-root-to-leaf-numbers/
+ */
 public class SumRootToLeaf {
 
     List<Integer> result = new ArrayList<>();
@@ -31,7 +35,6 @@ public class SumRootToLeaf {
 
     private void hasPthSum(TreeNode root, String currentSum) {
 
-        // This condition meeting means that we encountered a null node without first encountering the leaf node. So, the null node is not lead node.
         if (root == null) {
             return;
         }
