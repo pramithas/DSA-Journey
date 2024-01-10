@@ -7,9 +7,19 @@ import java.util.Scanner;
 
 /**
  * https://leetcode.com/problems/binary-tree-maximum-path-sum/description/
+ * <p>
+ * Does Post Order Traversal.
+ * Revised on Jan 10.
  */
 public class MaximumSumPath {
     int maxSum = Integer.MIN_VALUE;
+
+    public static void main(String[] args) {
+        BinaryTree binaryTree = new BinaryTree();
+        binaryTree.populate(new Scanner(System.in));
+        binaryTree.display();
+        System.out.println(new MaximumSumPath().maxPathSum(binaryTree.getRoot()));
+    }
 
     public int maxPathSum(TreeNode root) {
 
@@ -32,17 +42,12 @@ public class MaximumSumPath {
         left = Math.max(left, 0);
         right = Math.max(right, 0);
 
+        // These left and right represent the maximum path value. And, for the node for which the
+        // left and right nodes are leaf nodes, they are maximum by default.
         int sum = left + right + root.val;
 
         maxSum = Math.max(sum, maxSum);
         // doing max(left, right) because you need to find the maximum sum for a path.
         return Math.max(left, right) + root.val;
-    }
-
-    public static void main(String[] args) {
-        BinaryTree binaryTree = new BinaryTree();
-        binaryTree.populate(new Scanner(System.in));
-        binaryTree.display();
-        System.out.println(new MaximumSumPath().maxPathSum(binaryTree.getRoot()));
     }
 }
