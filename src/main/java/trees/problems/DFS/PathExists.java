@@ -5,6 +5,9 @@ import trees.TreeNode;
 
 import java.util.Scanner;
 
+/**
+ * Revised on Jan 12.
+ */
 public class PathExists {
 
     public boolean findPath(TreeNode root, int[] arr) {
