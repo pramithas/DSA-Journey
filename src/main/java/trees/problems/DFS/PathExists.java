@@ -6,7 +6,7 @@ import trees.TreeNode;
 import java.util.Scanner;
 
 /**
- * Revised on Jan 12.
+ * Revised on Jan 15.
  */
 public class PathExists {
 
@@ -21,6 +21,9 @@ public class PathExists {
 
     private boolean helper(TreeNode root, int[] arr, int index) {
 
+        // Null is encountered before any of the below conditions. So, the sequence of the
+        // if conditions matters too and they carry a meaning. It means that the leaf node
+        // condition in the previous node did not return true.
         if (root == null) {
             return false;
         }
@@ -30,7 +33,8 @@ public class PathExists {
         }
 
         // Why to return true in case of leaf node? Because, we are finding the path from
-        // root to leaf. And, if we have reached the leaf node and root.val == arr[index],
+        // root to leaf. And, if we have reached the leaf node and root.val == arr[index] (deduced
+        // from the previous if condition: root.val != arr[index],
         // we have found the path.
         // How is it that root.val == arr[index] ?
         if (root.left == null && root.right == null &&
