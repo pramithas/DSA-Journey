@@ -6,6 +6,7 @@ import trees.TreeNode;
 import java.util.Scanner;
 
 /**
+ * Revised on 17th Jan.
  * https://leetcode.com/problems/validate-binary-search-tree/
  */
 public class ValidateBST {
