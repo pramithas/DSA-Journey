@@ -40,7 +40,7 @@ public class ValidateBST {
 
 
     //    public boolean isValidBST(TreeNode root) {
-//        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+ //        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
 //    }
 //
 //    private boolean validate(TreeNode root, long start, long end){
