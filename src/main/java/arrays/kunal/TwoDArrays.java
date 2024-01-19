@@ -1,5 +1,7 @@
 package arrays.kunal;
 
+import java.util.ArrayList;
+
 public class TwoDArrays {
 
     public static void main(String[] args) {
@@ -12,5 +14,8 @@ public class TwoDArrays {
 
         // Column size is not required.
         int[][] arr = new int[3][];
+
+        ArrayList<Integer> myList = new ArrayList<>();
+        myList.add(3);
     }
 }
