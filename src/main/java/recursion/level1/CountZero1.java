@@ -2,7 +2,7 @@ package recursion.level1;
 
 /**
  * Counts the number of zero in the given number.
- * Revised on : 10th December, 2023.
+ * Revised on : 15th June, 2024.
  */
 public class CountZero1 {
 
@@ -13,7 +13,7 @@ public class CountZero1 {
             encountered when a large number gets reduced step by step and become zero. In that case, we cannot do count + 1;
          */
         if (n == 0) {
-            return count;
+            return count + 1;
         }
 
         /*
@@ -30,6 +30,6 @@ public class CountZero1 {
     }
 
     public static void main(String[] args) {
-        System.out.println(count(1200230003, 0));
+        System.out.println(count(10, 0));
     }
 }

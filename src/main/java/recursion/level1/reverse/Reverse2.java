@@ -1,21 +1,18 @@
 package recursion.level1.reverse;
 
 public class Reverse2 {
-
-    static int sum = 0;
-    public static void rev(int n){
+    public static int rev(int n, int sum){
 
         if(n == 0){
-            return;
+            return sum;
         }
         int rem = n % 10;
         sum = sum * 10+ rem;
-        rev(n/10);
+        return rev(n/10, sum);
     }
 
 
     public static void main(String[] args) {
-        rev(1234567);
-        System.out.println(sum);
+        System.out.println(rev(1234567, 0));
     }
 }

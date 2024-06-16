@@ -12,10 +12,12 @@ public class Concept {
         }
 
         System.out.println(n);
+        // 2,1,0
         // first decrease by 1 and call the method.
         display(--n);
 
-        System.out.println(n);
+        //System.out.println(n);
+        // 0,1,2
     }
 
     public static void main(String[] args) {
