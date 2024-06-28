@@ -2,6 +2,7 @@ package arrays.algoexpert;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class ValidateSubsequence {
 
@@ -11,7 +12,7 @@ public class ValidateSubsequence {
 
         for (Integer elem : array) {
 
-            if (elem == sequence.get(index)) {
+            if (Objects.equals(elem, sequence.get(index))) {
                 index++;
             }
 
@@ -25,7 +26,7 @@ public class ValidateSubsequence {
 
     public static void main(String[] args) {
         var array = Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10);
-        var sequence = Arrays.asList(1, 6, -1, 10);
-        isValidSubsequence(array, sequence);
+        var sequence = Arrays.asList( 6, 1, -1, 10);
+        System.out.println(isValidSubsequence(array, sequence));
     }
 }

@@ -26,7 +26,7 @@ public class NonConstructibleChange {
     }
 
     public static void main(String[] args) {
-        int arr[] = {5, 7, 1, 1, 2, 3, 22};
+        int arr[] = {1,2,5};
         int result = new NonConstructibleChange().nonConstructibleChange(arr);
         System.out.println(result);
     }
