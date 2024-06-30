@@ -7,24 +7,24 @@ public class ProductOfArrayOpt {
 
         int[] result = new int[array.length];
 
-        for (int i = 0; i < array.length; i++) {
+        int leftProduct[] = new int[array.length];
+        int rightProduct[] = new int [array.length];
 
-            int leftProd = 1;
-            int rightProd = 1;
+        leftProduct[0] = 1;
+        rightProduct[array.length - 1] = 1;
 
-            int leftPointer = i - 1;
-            int rightPointer = i + 1;
-
-            while (leftPointer >= 0){
-                leftProd*= array[leftPointer--];
-            }
-
-            while (rightPointer < array.length){
-                rightProd*= array[rightPointer++];
-            }
-
-            result[i] = leftProd * rightProd;
+        for(int i = 1; i < array.length; i++){
+            leftProduct[i] = leftProduct[i - 1] * array[i - 1];
         }
+
+        for(int j = array.length - 2 ; j >= 0; j--){
+            rightProduct[j] = rightProduct[j + 1] * array[j + 1];
+        }
+
+        for(int i = 0; i < array.length; i++){
+            result[i] = leftProduct[i] * rightProduct[i];
+        }
+
         return result;
     }
 
