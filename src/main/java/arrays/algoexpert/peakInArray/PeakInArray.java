@@ -1,4 +1,4 @@
-package arrays.algoexpert;
+package arrays.algoexpert.peakInArray;
 
 public class PeakInArray {
 
