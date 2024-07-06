@@ -2,7 +2,7 @@ package arrays.algoexpert.zeroSumSubarray;
 
 public class ZeroSumSubArrayBF {
 
-    public boolean zeroSumSubarray(int[] nums) {
+    public boolean zeroSumSubArray(int[] nums) {
 
         if (nums.length == 0 || nums[0] == 0) {
             return false;
