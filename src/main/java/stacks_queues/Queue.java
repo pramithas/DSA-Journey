@@ -1,7 +1,7 @@
 package stacks_queues;
 
 public class Queue {
-    private int[] data;
+    private final int[] data;
 
     private static final int DEFAULT_SIZE = 10;
 
@@ -58,6 +58,19 @@ public class Queue {
             System.out.print(data[i] + " <- ");
         }
         System.out.println("END");
+    }
+
+    public static void main(String[] args) throws Exception {
+
+        Queue queue = new Queue();
+
+        queue.insert(1);
+        queue.insert(2);
+        queue.insert(3);
+        queue.insert(4);
+        queue.insert(5);
+
+        System.out.println(queue.remove());
     }
 
 }
