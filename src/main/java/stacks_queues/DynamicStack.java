@@ -1,6 +1,6 @@
 package stacks_queues;
 
-public class DynamicStack extends CustomStack {
+public class DynamicStack extends Stack {
 
     public DynamicStack() {
         super(); // it will call CustomStack()

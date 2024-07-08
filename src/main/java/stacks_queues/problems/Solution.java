@@ -19,7 +19,7 @@ class Result {
             return count - 1;
         }
 
-        if (a.size() == 0 || b.size() == 0) {
+        if (a.isEmpty() || b.isEmpty()) {
             return count;
         }
 

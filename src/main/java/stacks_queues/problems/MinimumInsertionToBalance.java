@@ -5,6 +5,7 @@ import java.util.Stack;
 public class MinimumInsertionToBalance {
 
     public int minInsertions(String s) {
+
         Stack<Character> strStack = new Stack<>();
 
         char prev = ' ';

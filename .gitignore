@@ -1,2 +1,9 @@
 .idea/
 target/
+../.DS_Store
+../DSAlgo.iml
+../output.txt
+.DS_Store
+main/.DS_Store
+../production/
+DSA-Journey.iml

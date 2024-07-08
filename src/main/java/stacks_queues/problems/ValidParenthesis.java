@@ -20,17 +20,17 @@ public class ValidParenthesis {
                 strStack.push(currChar);
             } else {
                 if (currChar == '}') {
-                    if (strStack.isEmpty() || strStack.pop() != '{') {
+                    if (strStack.pop() != '{') {
                         return false;
                     }
 
                 } else if (currChar == ']') {
-                    if (strStack.isEmpty() || strStack.pop() != '[') {
+                    if (strStack.pop() != '[') {
                         return false;
                     }
 
-                } else if (currChar == ')' && strStack.isEmpty()) {
-                    if (strStack.isEmpty() || strStack.pop() != '(') {
+                } else if (currChar == ')') {
+                    if (strStack.pop() != '(') {
                         return false;
                     }
 

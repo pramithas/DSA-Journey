@@ -1,17 +1,17 @@
 package stacks_queues;
 
-public class CustomQueue {
+public class Queue {
     private int[] data;
 
     private static final int DEFAULT_SIZE = 10;
 
     int end = 0;
 
-    public CustomQueue() {
+    public Queue() {
         this(DEFAULT_SIZE);
     }
 
-    public CustomQueue(int size) {
+    public Queue(int size) {
         this.data = new int[size];
     }
 

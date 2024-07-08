@@ -11,8 +11,9 @@ public class BitShift {
     }
 
     public static void main(String[] args) {
-        int n = 12;
-        System.out.println(leftShift(n,2));
-        System.out.println(rightShift(n, 2));
+
+        int n = 4;
+        System.out.println(leftShift(n,1));
+        System.out.println(rightShift(n, 1));
     }
 }
