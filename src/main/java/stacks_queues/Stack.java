@@ -28,9 +28,6 @@ public class Stack {
         if (isEmpty()) {
             throw new StackException("Cannot pop from an empty stack!!");
         }
-//        int removed = data[ptr];
-//        ptr--;
-//        return removed;
         return data[ptr--];
     }
 
