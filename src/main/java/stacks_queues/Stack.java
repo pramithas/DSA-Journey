@@ -38,7 +38,7 @@ public class Stack {
         return data[ptr];
     }
 
-    public boolean isFull() {
+    protected boolean isFull() {
         return ptr == data.length - 1; // ptr is at last index
     }
 
