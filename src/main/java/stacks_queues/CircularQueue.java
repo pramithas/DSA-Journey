@@ -1,5 +1,8 @@
 package stacks_queues;
 
+/**
+ * Circular queue contents basically lie between start and end.
+ */
 public class CircularQueue {
     protected int[] data;
     private static final int DEFAULT_SIZE = 10;
