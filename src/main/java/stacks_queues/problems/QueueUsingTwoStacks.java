@@ -2,12 +2,12 @@ package stacks_queues.problems;
 
 import java.util.Stack;
 
-public class MyQueue {
+public class QueueUsingTwoStacks {
 
     Stack<Integer> stack1;
     Stack<Integer> stack2;
 
-    public MyQueue() {
+    public QueueUsingTwoStacks() {
         stack1 = new Stack<>();
         stack2 = new Stack<>();
     }
@@ -33,13 +33,13 @@ public class MyQueue {
         while (!stack1.empty()) {
             stack2.push(stack1.pop());
         }
-        int popped = stack2.peek();
+        int peeked = stack2.peek();
 
         while (!stack2.empty()) {
             stack1.push(stack2.pop());
         }
 
-        return popped;
+        return peeked;
     }
 
     public boolean empty() {
@@ -48,8 +48,8 @@ public class MyQueue {
 }
 
 /**
- * Your MyQueue object will be instantiated and called as such:
- * MyQueue obj = new MyQueue();
+ * Your QueueUsingTwoStacks object will be instantiated and called as such:
+ * QueueUsingTwoStacks obj = new QueueUsingTwoStacks();
  * obj.push(x);
  * int param_2 = obj.pop();
  * int param_3 = obj.peek();
