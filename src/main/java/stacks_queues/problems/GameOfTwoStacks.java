@@ -2,11 +2,8 @@ package stacks_queues.problems;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.*;
 
-import static java.util.stream.Collectors.toList;
-
-class Result {
+public class GameOfTwoStacks {
 
     // This is a brute force solution.
     public static int twoStacks(int maxSum, List<Integer> a, List<Integer> b) {

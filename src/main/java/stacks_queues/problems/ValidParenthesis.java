@@ -3,34 +3,27 @@ package stacks_queues.problems;
 import java.util.Stack;
 
 public class ValidParenthesis {
-    private static Stack<Character> strStack = new Stack<>();
-
     public static boolean isValid(String s) {
 
-        for (int i = 0; i < s.length(); i++) {
+        final Stack<Character> strStack = new Stack<>();
 
-            if (strStack.isEmpty()) {
-                strStack.push(s.charAt(i));
-                continue;
-            }
-
-            char currChar = s.charAt(i);
+        for (char currChar : s.toCharArray()) {
 
             if (currChar == '{' || currChar == '(' || currChar == '[') {
                 strStack.push(currChar);
             } else {
                 if (currChar == '}') {
-                    if (strStack.pop() != '{') {
+                    if (strStack.isEmpty() || strStack.pop() != '{') {
                         return false;
                     }
 
                 } else if (currChar == ']') {
-                    if (strStack.pop() != '[') {
+                    if (strStack.isEmpty() || strStack.pop() != '[') {
                         return false;
                     }
 
                 } else if (currChar == ')') {
-                    if (strStack.pop() != '(') {
+                    if (strStack.isEmpty() || strStack.pop() != '(') {
                         return false;
                     }
 
