@@ -554,6 +554,9 @@ public class LinkedList {
 
     public int deleteFirst() {
 
+        int secondDigit = (int) (5 * Math.pow(10, 2) + 5);
+
+
         int val = head.val;
         head = head.next;
 
