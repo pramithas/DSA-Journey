@@ -38,7 +38,9 @@ public class LinkedList {
             h2 = h2.next;
         }
 
+
         return result;
+
     }
 
     public void insertFirst(int val) {
@@ -104,6 +106,7 @@ public class LinkedList {
 
         ListNode temp = slow;
         int count = 0;
+
         do {
             temp = temp.next;
             count++;
