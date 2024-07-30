@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Revised on dec 22.
+ * Revised on 30th July, 2024.
  */
 public class SubsequenceWithDuplicate {
 
