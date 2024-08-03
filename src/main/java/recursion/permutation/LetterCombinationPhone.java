@@ -10,6 +10,7 @@ public class LetterCombinationPhone {
     }
 
     public static List<String> findPermutations(String number) {
+
         List<String> result = new ArrayList<>();
 
         if (number.isEmpty()) {
@@ -48,9 +49,15 @@ public class LetterCombinationPhone {
             end+=2;
         }
 
-        for (int i = start; i < end; i++) {
-            char ch = (char) ('a' + i);
-            pad(p + ch, up.substring(1), result);
+        if(digit == 0 || digit == 1){
+            pad(p+ digit, up.substring(1), result);
+        }else  {
+            for (int i = start; i < end; i++) {
+                char ch = (char) ('a' + i);
+                pad(p + ch, up.substring(1), result);
+            }
         }
+
+
     }
 }

@@ -1,4 +1,4 @@
-package binarysearch.theory;
+package search.binarysearch.theory;
 
 public class BinarySearch {
 

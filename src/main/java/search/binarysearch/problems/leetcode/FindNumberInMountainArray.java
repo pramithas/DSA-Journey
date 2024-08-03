@@ -1,8 +1,6 @@
-package binarysearch.problems.leetcode;
+package search.binarysearch.problems.leetcode;
 
-import binarysearch.theory.BinarySearch;
-
-import static binarysearch.problems.leetcode.PeakIndexInMountainArray.findPeakIndex;
+import static search.binarysearch.problems.leetcode.PeakIndexInMountainArray.findPeakIndex;
 
 public class FindNumberInMountainArray {
 
