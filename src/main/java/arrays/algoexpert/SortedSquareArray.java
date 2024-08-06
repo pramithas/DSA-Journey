@@ -15,22 +15,22 @@ public class SortedSquareArray {
         int lastIdx = array.length - 1;
         int firstIdx = 0;
         int[] result = new int[array.length];
-        int counter = 1;
+        int counter = array.length - 1;
         for (int i = 0; i < array.length; i++) {
             if (Math.abs(array[firstIdx]) < Math.abs(array[lastIdx])) {
-                result[array.length - counter] = array[lastIdx] * array[lastIdx];
+                result[counter] = array[lastIdx] * array[lastIdx];
                 lastIdx--;
             } else {
-                result[array.length - counter] = array[firstIdx] * array[firstIdx];
+                result[counter] = array[firstIdx] * array[firstIdx];
                 firstIdx++;
             }
-            counter++;
+            counter--;
         }
         return result;
     }
 
     public static void main(String[] args) {
-        int arr[] = {-2, -1, 0, 1, 2};
+        int arr[] = {-3, 1,2,3};
         System.out.println(Arrays.toString(sortedSquaredArray(arr)));
     }
 }
